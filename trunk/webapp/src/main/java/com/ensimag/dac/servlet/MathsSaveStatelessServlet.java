@@ -1,29 +1,26 @@
 package com.ensimag.dac.servlet;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import com.ensimag.dac.util.EJBClientUtil;
+import org.ow2.util.log.Log;
+import org.ow2.util.log.LogFactory;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.persistence.EntityManager;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-import org.ow2.util.log.Log;
-import org.ow2.util.log.LogFactory;
-
-import com.ensimag.dac.util.EJBClientUtil;
-
-public class MathsStatelessServlet extends HttpServlet {
+public class MathsSaveStatelessServlet extends HttpServlet {
 
     /**
      *
      */
     private static final long serialVersionUID = 8204003069337360358L;
 
-    private static Log s_LOGGER = LogFactory.getLog(MathsStatelessServlet.class);
+    private static Log s_LOGGER = LogFactory.getLog(MathsSaveStatelessServlet.class);
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -39,7 +36,7 @@ public class MathsStatelessServlet extends HttpServlet {
         long result = -1;
 
         try {
-            result = EJBClientUtil.callAddOnStateless(new InitialContext());
+            result = EJBClientUtil.callAddAndSaveOnStateless(new InitialContext());
         } catch (NamingException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

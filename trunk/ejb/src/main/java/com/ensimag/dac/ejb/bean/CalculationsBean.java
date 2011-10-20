@@ -1,11 +1,10 @@
 package com.ensimag.dac.ejb.bean;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
 public class CalculationsBean implements Serializable {
@@ -24,6 +23,9 @@ public class CalculationsBean implements Serializable {
     private long secondPart;
 
     private long result;
+
+    public CalculationsBean() {
+    }
 
     public CalculationsBean(final long firstPart, final long secondPart,
                             final long result) {

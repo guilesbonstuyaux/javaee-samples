@@ -7,7 +7,7 @@ import javax.persistence.PersistenceContext;
 import com.ensimag.dac.ejb.api.IMathStatelessRemote;
 import com.ensimag.dac.ejb.bean.CalculationsBean;
 
-@Stateless(mappedName = "com.ensimag.dac.ejb.stateless.MathStateless@Remote", description = "Maths stateless", name = "MathStateless")
+@Stateless(mappedName = "com.evangelion.ejb.stateless.MathStateless@Remote", description = "Maths stateless", name = "MathStateless")
 public class MathStateless implements IMathStatelessRemote {
 
     private long previousResult = 0;

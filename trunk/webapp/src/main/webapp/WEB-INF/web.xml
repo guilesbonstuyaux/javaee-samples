@@ -13,6 +13,10 @@
         <servlet-class>com.ensimag.dac.servlet.MathsStatelessServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>mathsSaveStateless</servlet-name>
+        <servlet-class>com.ensimag.dac.servlet.MathsSaveStatelessServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>mathsStateful</servlet-name>
         <servlet-class>com.ensimag.dac.servlet.MathsStatefulServlet</servlet-class>
     </servlet>
@@ -24,6 +28,10 @@
     <servlet-mapping>
         <servlet-name>mathsStateless</servlet-name>
         <url-pattern>/mathsStateless</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>mathsSaveStateless</servlet-name>
+        <url-pattern>/mathsSaveStateless</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>mathsStateful</servlet-name>
