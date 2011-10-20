@@ -4,7 +4,7 @@ import javax.ejb.Stateful;
 
 import com.ensimag.dac.ejb.api.IMathRemote;
 
-@Stateful(mappedName = "com.ensimag.dac.ejb.stateless.MathStateful@Remote", description = "Maths stateful", name = "MathStateful")
+@Stateful(mappedName = "com.evangelion.ejb.stateless.MathStateful@Remote", description = "Maths stateful", name = "MathStateful")
 public class MathStateful implements IMathRemote {
 
     private long previousResult = 0;

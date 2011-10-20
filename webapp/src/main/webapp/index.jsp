@@ -13,6 +13,8 @@
 <br/>
 <a href="./mathsStateless">Call stateless EJB</a>
 <br/>
+<a href="./mathsSaveStateless">Call stateless EJB and save in DataBase</a>
+<br/>
 <a href="./mathsStateful">Call stateful EJB</a>
 <br/>
 </body>
