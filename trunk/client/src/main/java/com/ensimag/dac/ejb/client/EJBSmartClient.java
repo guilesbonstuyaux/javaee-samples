@@ -37,7 +37,7 @@ public class EJBSmartClient {
         System.out.println("Call stateless :");
         System.out.println("----------------");
         IMathRemote remoteService = (IMathRemote) p_InitialContext
-                .lookup("com.ensimag.dac.ejb.stateless.MathStateless@Remote");
+                .lookup("com.evangelion.ejb.stateless.MathStateless@Remote");
         long serviceResult = remoteService.add(2, 4);
         System.out.println("call 1 : " + serviceResult);
         System.out.println();
@@ -51,7 +51,7 @@ public class EJBSmartClient {
         System.out.println("Call stateful :");
         System.out.println("---------------");
         IMathRemote remoteService = (IMathRemote) p_InitialContext
-                .lookup("com.ensimag.dac.ejb.stateless.MathStateful@Remote");
+                .lookup("com.evangelion.ejb.stateless.MathStateful@Remote");
         long serviceResult = remoteService.add(2, 4);
         System.out.println("call 1 : " + serviceResult);
         System.out.println();
