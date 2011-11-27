@@ -1,15 +1,14 @@
 package com.ensimag.dac.servlet;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import org.ow2.util.log.Log;
+import org.ow2.util.log.LogFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.ow2.util.log.Log;
-import org.ow2.util.log.LogFactory;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class HelloServlet extends HttpServlet {
 
@@ -29,6 +28,8 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        s_LOGGER.info("Connected remote user is {0}", req.getRemoteUser());
+
         PrintWriter out = resp.getWriter();
 
         out.println("Hello, world!");
