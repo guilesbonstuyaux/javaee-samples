@@ -17,5 +17,7 @@
 <br/>
 <a href="./mathsStateful">Call stateful EJB</a>
 <br/>
+<a href="./logOut">Log out</a>
+<br/>
 </body>
 </html>
