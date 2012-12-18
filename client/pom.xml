@@ -23,8 +23,8 @@
 
         <dependency>
             <groupId>org.ow2.jonas</groupId>
-            <artifactId>jonas-client</artifactId>
-            <version>5.3.0-M3</version>
+            <artifactId>jonas-client-core</artifactId>
+            <version>5.3.0-M7</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.ow2.jonas.osgi</groupId>
