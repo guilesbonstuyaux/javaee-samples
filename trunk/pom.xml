@@ -34,5 +34,17 @@
         <module>client</module>
     </modules>
 
+	<repositories>
+		<repository>
+        		<id>ow2</id>
+	        	<url>http://repository.ow2.org/nexus/content/repositories/public/</url>
+	        	<releases>
+        		   <enabled>true</enabled>
+		        </releases>
+		        <snapshots>
+		          <enabled>false</enabled>
+		        </snapshots>        
+	     </repository>
+	</repositories>
 
 </project>
