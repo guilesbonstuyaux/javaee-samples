@@ -11,13 +11,10 @@ import javax.jms.MessageConsumer;
 import javax.jms.MessageListener;
 import javax.jms.MessageProducer;
 import javax.jms.ObjectMessage;
-import javax.jms.Queue;
 import javax.jms.Session;
 import javax.jms.Topic;
 import javax.naming.Context;
 import javax.naming.InitialContext;
-
-import org.ow2.carol.jndi.spi.MultiOrbInitialContextFactory;
 
 import com.ensimag.dac.message.JMSMessage;
 
@@ -27,9 +24,8 @@ public class JMSTopicClient {
 
         // init initial context
         Properties props = new Properties();
-        props.put(Context.PROVIDER_URL, "rmi://localhost:1099");
-        props.put(Context.INITIAL_CONTEXT_FACTORY,
-                MultiOrbInitialContextFactory.class.getName());
+		props.put("org.omg.CORBA.ORBInitialHost", "localhost");
+		props.put("org.omg.CORBA.ORBInitialPort", "3700");
 
         Context initialContext = new InitialContext(props);
 
@@ -51,14 +47,14 @@ public class JMSTopicClient {
 
     public void publish(JMSMessage p_Message, Context p_Ctx) throws Exception {
         System.out.println("start publishing ...");
-        ConnectionFactory cnxFactory = (ConnectionFactory) p_Ctx.lookup("JQCF");
+        ConnectionFactory cnxFactory = (ConnectionFactory) p_Ctx.lookup("java:comp/DefaultJMSConnectionFactory");
         Connection cnx = cnxFactory.createConnection();
         Session topicSession = cnx.createSession(false,
                 Session.AUTO_ACKNOWLEDGE);
 
         cnx.start();
 
-        Destination dest = (Topic) p_Ctx.lookup("sampleTopic");
+        Destination dest = (Topic) p_Ctx.lookup("DAC_JMSSampleTopic");
 
         MessageProducer producer = topicSession.createProducer(dest);
 
@@ -71,15 +67,15 @@ public class JMSTopicClient {
     }
 
     public void subscribe(Context p_Ctx) throws Exception {
-        System.out.println("start consumming ...");
-        ConnectionFactory cnxFactory = (ConnectionFactory) p_Ctx.lookup("JQCF");
+        System.out.println("start subscriber ...");
+        ConnectionFactory cnxFactory = (ConnectionFactory) p_Ctx.lookup("java:comp/DefaultJMSConnectionFactory");
         Connection cnx = cnxFactory.createConnection();
         Session topicSession = cnx.createSession(false,
                 Session.AUTO_ACKNOWLEDGE);
 
         cnx.start();
 
-        Destination dest = (Topic) p_Ctx.lookup("sampleTopic");
+        Destination dest = (Topic) p_Ctx.lookup("DAC_JMSSampleTopic");
 
         MessageConsumer consumer = topicSession.createConsumer(dest);
         consumer.setMessageListener(new MyTopicListener());

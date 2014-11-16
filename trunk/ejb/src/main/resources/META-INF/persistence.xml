@@ -5,9 +5,9 @@
              version="1.0">
 
     <persistence-unit name="entity-DAC">
-        <jta-data-source>jdbc_1</jta-data-source>
+        <jta-data-source>jdbc_DAC</jta-data-source>
         <properties>
-            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
         </properties>
     </persistence-unit>
 </persistence>

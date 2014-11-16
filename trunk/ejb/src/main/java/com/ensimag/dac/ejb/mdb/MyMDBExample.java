@@ -8,15 +8,15 @@ import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.ObjectMessage;
 
-import org.ow2.util.log.Log;
-import org.ow2.util.log.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.ensimag.dac.message.JMSMessage;
 
-@MessageDriven(mappedName = "sampleQueue", activationConfig = {@ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue")})
+@MessageDriven(mappedName = "DAC_JMSSampleMDBQueue", activationConfig = {@ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue")})
 public class MyMDBExample implements MessageListener {
 
-    private static final Log s_LOGGER = LogFactory.getLog(MyMDBExample.class);
+    private static final Logger s_LOGGER = LoggerFactory.getLogger(MyMDBExample.class);
 
     @Resource
     private MessageDrivenContext mdc;
@@ -28,12 +28,12 @@ public class MyMDBExample implements MessageListener {
                         .getObject();
                 MyMDBExample.s_LOGGER
                         .info(
-                                "Received message from Queue. The message was : {0} {1}",
+                                "Received message from Queue. The message was : {} {}",
                                 myMessage.firstName, myMessage.lastName);
             } else {
                 MyMDBExample.s_LOGGER
                         .info(
-                                "Received an unknown message. MDB context was {0}\nwith the destination {1}",
+                                "Received an unknown message. MDB context was {}\nwith the destination {}",
                                 this.mdc.toString(), p_InMessage
                                 .getJMSDestination());
             }

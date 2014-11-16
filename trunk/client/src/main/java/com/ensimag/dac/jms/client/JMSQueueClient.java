@@ -14,8 +14,6 @@ import javax.jms.Session;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 
-import org.ow2.carol.jndi.spi.MultiOrbInitialContextFactory;
-
 import com.ensimag.dac.message.JMSMessage;
 
 public class JMSQueueClient {
@@ -23,10 +21,9 @@ public class JMSQueueClient {
         JMSQueueClient client = new JMSQueueClient();
 
         // init initial context
-        Properties props = new Properties();
-        props.put(Context.PROVIDER_URL, "rmi://localhost:1099");
-        props.put(Context.INITIAL_CONTEXT_FACTORY,
-                MultiOrbInitialContextFactory.class.getName());
+		Properties props = new Properties();
+		props.put("org.omg.CORBA.ORBInitialHost", "localhost");
+		props.put("org.omg.CORBA.ORBInitialPort", "3700");
 
         Context initialContext = new InitialContext(props);
 
@@ -39,14 +36,14 @@ public class JMSQueueClient {
 
     public void publish(JMSMessage p_Message, Context p_Ctx) throws Exception {
         System.out.println("start publishing ...");
-        ConnectionFactory cnxFactory = (ConnectionFactory) p_Ctx.lookup("JQCF");
+        ConnectionFactory cnxFactory = (ConnectionFactory) p_Ctx.lookup("java:comp/DefaultJMSConnectionFactory");
         Connection cnx = cnxFactory.createConnection();
         Session queueSession = cnx.createSession(false,
                 Session.AUTO_ACKNOWLEDGE);
 
         cnx.start();
 
-        Destination dest = (Queue) p_Ctx.lookup("sampleQueue");
+        Destination dest = (Queue) p_Ctx.lookup("DAC_JMSSampleQueue");
 
         MessageProducer producer = queueSession.createProducer(dest);
 
@@ -60,14 +57,14 @@ public class JMSQueueClient {
 
     public void consume(Context p_Ctx) throws Exception {
         System.out.println("start consumming ...");
-        ConnectionFactory cnxFactory = (ConnectionFactory) p_Ctx.lookup("JQCF");
+        ConnectionFactory cnxFactory = (ConnectionFactory) p_Ctx.lookup("java:comp/DefaultJMSConnectionFactory");
         Connection cnx = cnxFactory.createConnection();
         Session queueSession = cnx.createSession(false,
                 Session.AUTO_ACKNOWLEDGE);
 
         cnx.start();
 
-        Destination dest = (Queue) p_Ctx.lookup("sampleQueue");
+        Destination dest = (Queue) p_Ctx.lookup("DAC_JMSSampleQueue");
 
         MessageConsumer consummer = queueSession.createConsumer(dest);
         Message receivedMessage = consummer.receive();

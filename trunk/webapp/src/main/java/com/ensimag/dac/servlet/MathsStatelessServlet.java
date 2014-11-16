@@ -5,14 +5,13 @@ import java.io.PrintWriter;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.persistence.EntityManager;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.ow2.util.log.Log;
-import org.ow2.util.log.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.ensimag.dac.util.EJBClientUtil;
 
@@ -23,7 +22,7 @@ public class MathsStatelessServlet extends HttpServlet {
      */
     private static final long serialVersionUID = 8204003069337360358L;
 
-    private static Log s_LOGGER = LogFactory.getLog(MathsStatelessServlet.class);
+    private static Logger s_LOGGER = LoggerFactory.getLogger(MathsStatelessServlet.class);
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)

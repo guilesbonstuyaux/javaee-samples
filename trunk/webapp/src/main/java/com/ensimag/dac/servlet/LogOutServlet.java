@@ -10,7 +10,12 @@ import java.io.IOException;
  * LogOut servlet : invalidate the session.
  */
 public class LogOutServlet extends HttpServlet {
-    @Override
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8422232688750447796L;
+
+	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.doPost(req,resp);
     }

@@ -1,54 +1,42 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
 
-    <parent>
-        <groupId>com.ensimag.dac</groupId>
-        <artifactId>parent</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
+	<parent>
+		<groupId>com.ensimag.dac</groupId>
+		<artifactId>parent</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
 
+	<artifactId>ejb-api</artifactId>
+	<packaging>jar</packaging>
 
-    <groupId>com.ensimag.dac</groupId>
-    <artifactId>ejb-api</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+	<name>GlassFish :: Example :: EJB API classes</name>
+	<url>https://glassfish.java.net/</url>
 
-    <name>JOnAS :: Example :: EJB API classes</name>
-    <url>http://jonas.ow2.org</url>
+	<dependencies>
+		<dependency>
+			<groupId>javaee</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>5</version>
+			<scope>provided</scope>
+		</dependency>
 
-    <dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
-
-        <dependency>
-            <groupId>javaee</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>5</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.ow2.util</groupId>
-            <artifactId>util-log</artifactId>
-            <version>1.0.24</version>
-            <scope>provided</scope>
-        </dependency>
-
-    </dependencies>
-
-    <repositories>
-        <repository> <!-- for javaee:javaee-api -->
-            <id>java.net</id>
-            <name>java.net</name>
-            <url>http://download.java.net/maven/2/</url>
-        </repository>
-    </repositories>
+	<repositories>
+		<repository> <!-- for javaee:javaee-api -->
+			<id>java.net</id>
+			<name>java.net</name>
+			<url>http://download.java.net/maven/2/</url>
+		</repository>
+	</repositories>
 
 </project>

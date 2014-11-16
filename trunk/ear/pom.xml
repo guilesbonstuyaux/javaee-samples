@@ -1,76 +1,76 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
 
-    <parent>
-        <groupId>com.ensimag.dac</groupId>
-        <artifactId>parent</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
+	<parent>
+		<groupId>com.ensimag.dac</groupId>
+		<artifactId>parent</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
 
+	<!-- Dac ear artifact name -->
+	<artifactId>ear</artifactId>
 
-    <groupId>com.ensimag.dac</groupId>
-    <artifactId>ear</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>ear</packaging>
+	<!-- Packaging type -->
+	<packaging>ear</packaging>
 
-    <name>JOnAS :: Example :: EAR</name>
-    <url>http://jonas.ow2.org</url>
+	<name>GlassFish :: Example :: EAR</name>
+	<url>https://glassfish.java.net/</url>
 
-    <dependencies>
+	<dependencies>
 
-        <dependency>
-            <groupId>com.ensimag.dac</groupId>
-            <artifactId>ejb</artifactId>
-            <version>${project.version}</version>
-            <type>ejb</type>
-        </dependency>
+		<dependency>
+			<groupId>com.ensimag.dac</groupId>
+			<artifactId>ejb</artifactId>
+			<version>${project.version}</version>
+			<type>ejb</type>
+		</dependency>
 
-        <dependency>
-            <groupId>com.ensimag.dac</groupId>
-            <artifactId>webapp</artifactId>
-            <version>${project.version}</version>
-            <type>war</type>
-        </dependency>
+		<dependency>
+			<groupId>com.ensimag.dac</groupId>
+			<artifactId>webapp</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>
 
-    </dependencies>
+	</dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.0.2</version>
-                <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-ear-plugin</artifactId>
-                <version>2.4.1</version>
-                <configuration>
-                    <version>5</version>
-                    <defaultLibBundleDir>lib</defaultLibBundleDir>
-                    <modules>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<version>5</version>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<modules>
 
-                        <ejbModule>
-                            <groupId>com.ensimag.dac</groupId>
-                            <artifactId>ejb</artifactId>
-                        </ejbModule>
+						<ejbModule>
+							<groupId>com.ensimag.dac</groupId>
+							<artifactId>ejb</artifactId>
+						</ejbModule>
 
-                        <webModule>
-                            <groupId>com.ensimag.dac</groupId>
-                            <artifactId>webapp</artifactId>
-                        </webModule>
+						<webModule>
+							<groupId>com.ensimag.dac</groupId>
+							<artifactId>webapp</artifactId>
+						</webModule>
 
-                    </modules>
-                </configuration>
-            </plugin>
-        </plugins>
-        <finalName>ear</finalName>
-    </build>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+		<finalName>ear</finalName>
+	</build>
 
 </project>
