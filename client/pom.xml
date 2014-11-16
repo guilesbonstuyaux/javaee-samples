@@ -15,63 +15,26 @@
 
 	<dependencies>
 
+		<!-- GlassFish client side dependencies -->
 		<dependency>
 			<groupId>org.glassfish.main.appclient</groupId>
 			<artifactId>gf-client</artifactId>
 			<version>4.1</version>
 		</dependency>
-		
+
+		<!-- JMS client side dependencies -->
 		<dependency>
 			<groupId>org.glassfish.mq</groupId>
 			<artifactId>imqjmsra</artifactId>
 			<version>5.1</version>
 		</dependency>
 
-		<!-- JOnAS client.jar. Contains all classes to initiate an out of the box 
-			JOnAS client. -->
-
-		<!-- <dependency>
-			<groupId>org.ow2.jonas</groupId>
-			<artifactId>jonas-client-core</artifactId>
-			<version>5.3.0-M7</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.ow2.jonas.osgi</groupId>
-					<artifactId>javaee-api</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.apache.geronimo.specs</groupId>
-					<artifactId>geronimo-jms</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency> -->
-
-		<!-- To use a smartclient in the external JOnAS client. This will use the 
-			"smart://" protocole and download all needed class from the server. -->
-		<!-- <dependency>
-			<groupId>org.ow2.easybeans</groupId>
-			<artifactId>easybeans-component-smartclient-client</artifactId>
-			<version>1.2.0-M2</version>
-		</dependency> -->
 		<!-- To initiate a WebService Client -->
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-bindings-http</artifactId>
 			<version>2.0.12</version>
 		</dependency>
-		<!-- To handle JMS Messages -->
-
-		<!-- <dependency>
-			<groupId>org.objectweb.joram</groupId>
-			<artifactId>joram-client</artifactId>
-			<version>5.2.5</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.apache.geronimo.specs</groupId>
-					<artifactId>geronimo-jms</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency> -->
 
 		<!-- Project dependencies -->
 		<dependency>
