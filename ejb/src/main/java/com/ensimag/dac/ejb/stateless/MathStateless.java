@@ -1,22 +1,23 @@
 package com.ensimag.dac.ejb.stateless;
 
-import com.ensimag.dac.ejb.api.IMathStatelessRemote;
-import com.ensimag.dac.ejb.bean.CalculationsBean;
-import org.ow2.util.log.LogFactory;
-
 import javax.annotation.Resource;
 import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-@Stateless(mappedName = "com.evangelion.ejb.stateless.MathStateless@Remote", description = "Maths stateless",
+import org.slf4j.LoggerFactory;
+
+import com.ensimag.dac.ejb.api.IMathStatelessRemote;
+import com.ensimag.dac.ejb.bean.CalculationsBean;
+
+@Stateless(mappedName = "com.ensimag.ejb.stateless.MathStateless@Remote", description = "Maths stateless",
         name = "MathStateless")
 public class MathStateless implements IMathStatelessRemote {
 
     private long previousResult = 0;
 
-    @PersistenceContext
+    @PersistenceContext(name="entity_DAC")
     private EntityManager m_EntityManager = null;
 
     @Resource
@@ -26,8 +27,8 @@ public class MathStateless implements IMathStatelessRemote {
         long result = p_A + p_B + this.previousResult;
         this.previousResult = result;
 
-        LogFactory.getLog(this.getClass())
-                  .info("Connected user in stateless is {0}.", sessionContext.getCallerPrincipal().getName());
+        LoggerFactory.getLogger(this.getClass())
+                  .info("Connected user in stateless is {}.", sessionContext.getCallerPrincipal().getName());
 
         return result;
     }

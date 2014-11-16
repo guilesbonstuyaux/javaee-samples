@@ -3,8 +3,12 @@
  */
 package com.ensimag.dac.service.impl;
 
+import java.net.URL;
+
 import javax.jws.WebParam;
 import javax.jws.WebService;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
 
 import com.ensimag.dac.service.api.IHelloWS;
 import com.ensimag.dac.service.faults.MyWebFault;
@@ -13,9 +17,13 @@ import com.ensimag.dac.service.faults.MyWebFault;
  * @author Guillaume Renault
  */
 @WebService(endpointInterface = "com.ensimag.dac.service.api.IHelloWS", targetNamespace = "http://dac.ensimag.com")
-public class HelloWS implements IHelloWS {
+public class HelloWS extends Service implements IHelloWS {
 
-    @Override
+    protected HelloWS(URL wsdlDocumentLocation, QName serviceName) {
+		super(wsdlDocumentLocation, serviceName);
+	}
+
+	@Override
     public String sayHello(String p_Name) {
 
         StringBuilder sb = new StringBuilder();

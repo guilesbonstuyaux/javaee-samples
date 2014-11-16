@@ -1,9 +1,9 @@
 package com.ensimag.dac.service.api;
 
-import com.ensimag.dac.service.faults.MyWebFault;
-
 import javax.jws.WebParam;
 import javax.jws.WebService;
+
+import com.ensimag.dac.service.faults.MyWebFault;
 
 @WebService(name = "HelloWS", targetNamespace = "http://dac.ensimag.com")
 public interface IHelloWS {
