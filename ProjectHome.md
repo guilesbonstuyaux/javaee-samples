@@ -1,0 +1,1 @@
+Project that contains many samples about JavaEE. The targeted server is JOnAS 5
