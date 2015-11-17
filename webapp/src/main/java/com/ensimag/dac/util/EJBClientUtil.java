@@ -17,7 +17,7 @@ public class EJBClientUtil {
         System.out.println("Call stateless :");
         System.out.println("----------------");
         IMathRemote remoteService = (IMathRemote) p_InitialContext
-                .lookup("com.evangelion.ejb.stateless.MathStateless@Remote");
+                .lookup("com.ensimag.ejb.stateless.MathStateless@Remote");
         long serviceResult = remoteService.add(2, 4);
         System.out.println("call 1 : " + serviceResult);
         System.out.println();
@@ -31,7 +31,7 @@ public class EJBClientUtil {
         System.out.println("Call stateless :");
         System.out.println("----------------");
         IMathStatelessRemote remoteService = (IMathStatelessRemote) p_InitialContext
-                .lookup("com.evangelion.ejb.stateless.MathStateless@Remote");
+                .lookup("com.ensimag.ejb.stateless.MathStateless@Remote");
         long serviceResult = remoteService.addAndSave(2,4);
         System.out.println("call 1 : " + serviceResult);
         System.out.println();
@@ -50,7 +50,7 @@ public class EJBClientUtil {
 
         if (null == request.getSession().getAttribute("stateful")) {
             remoteService = (IMathRemote) p_InitialContext
-                    .lookup("com.evangelion.ejb.stateless.MathStateful@Remote");
+                    .lookup("com.ensimag.ejb.stateless.MathStateful@Remote");
             request.getSession().setAttribute("stateful", remoteService);
         }
 
